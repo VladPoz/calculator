@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
-// import "./globals.css";
+import Link from "next/link";
+import "./globals.css"
 
-const geistMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const jetBrains_Mono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
@@ -18,8 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistMono.variable} antialiased`}>
+    <html lang="en" className={jetBrains_Mono.className}>
+      <body>
+        <header>
+          <Link href="./register">register</Link>
+          <Link href="./login">login</Link>
+          <a href="./calculator">calculator</a>
+          <Link href="./">main</Link>
+        </header>
         {children}
       </body>
     </html>
